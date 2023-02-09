@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            color: white;
+            text-decoration: none;
+        }
+        #header{
+            margin: auto;
+            height: 70px;
+            width: 98%;
+            background-color: rgb(252, 182, 31);
+            transform: translateY(-90%);
+            transition: 0.8s;
+            box-shadow: 5px 5px 30px black;
+            border-radius: 0 0 10px 10px;
+        }
+        #check{
+            display:none;
+        }
+       
+        #check:checked~#header{
+            transform: translateY(0);
+        }
+        #header h1{
+            line-height: 70px;
+            margin: 0 auto;
+            padding-left: 50px;
+        }
+        label{
+            position: absolute;
+            right: 40px;
+            width: 100px;
+            bottom: 0px;/*The division header's buttom. 
+            If we don't put this, it won't end up showing on the bottom*/
+            text-align: center;
+            background-color: rgb(252, 182, 31);
+            border-radius: 0 0 8px 8px;
+            transform: translateY(100%);
+            cursor: pointer;
+        }
+        #text{
+            margin-top: 120px;
+        }
+        #text h1{
+            padding-top: 10px;
+            padding-bottom: 150px;
+            text-align: center;
+        }
+        #margin{
+            background: url(Software.jpg)
+             repeat fixed 100%;
+            height: 300px;
+            width: 100%;
+            position: absolute;
+            top: 0px;
+            background-position: center;
+            background-size: 100%;
+            z-index: -1;
+        }
+        #text .inside{
+            margin-left: 20%;
+            font-size: 25px;
+        } 
+        .inside #S{
+            position: absolute;
+            left: 50%;
+        }
+        #img{
+            width: 30%;
+            margin-left: 34%;
+            margin-top: 200px;
+        }
+    </style>
+</head>
+<body style="background-color: rgb(101, 101, 101);">
+    <input id='check' type="checkbox">
+    <div id="header">
+        <a href="https://www.instagram.com/softdev_louis0621/"><h1>softdev_louis0621</h1></a>
+        <label for="check"><span>Press me</span></label>
+    </div>
+    
+    <div id="margin"></div>
+    <div id="text">
+        
+        <h1>Personal Experience</h1>
+        <br>
+        <div class="inside">
+            <div id="F">
+                <ul id='list' type="disc">
+                    <li>Experience with C</li>
+                    <li style="margin: auto">English Speaking skill</li>
+                </ul>
+            </div>
+            <br>
+            <br>
+            <div id="S">
+                <ul id='list' type="disc">
+                    <li>Excellent scores in TOEIC</li>
+                    <li style="margin:auto">Worked as a winter camp assistant</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <a href="https://www.instagram.com/softdev_louis0621/"><img id="img" src="https://th.bing.com/th/id/R.3edd4e172acc9ef3eea8f4be1491a68c?rik=Do7LoZ4jY5MpPw&pid=ImgRaw&r=0"></a>
+</body>
+</html>
