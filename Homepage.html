@@ -9,17 +9,52 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@200&display=swap" rel="stylesheet">
     <style>
+        @media(max-width: 700px){
+            section, .sub-menu{
+                display: flex;
+                flex-direction: column;
+                overflow: hidden;
+            }
+        
+            .main-menu{
+                display: flex;
+                flex-direction: column;
+                background-color: white;
+                font-size: 0.3rem;
+                padding-bottom: 255px;
+            }
+            .main-menu img{
+                transform: translateX(-15px);
+            }
+            .sub{
+                display: flex;
+                list-style: none;
+                flex-direction: column-reverse;
+                background-color: white;
+            }
+            .sub-menu{
+                transform: translateX(15px);
+            }
+            .sub-menu li{
+                border-left: 2px solid rgb(52, 52, 52);
+                
+                border-right: 2px solid rgb(52, 52, 52);
+            }
+            .section{
+                margin-top: 300px;
+            }
+        }
         *{
             font-family: 'Roboto Mono', monospace;
             margin: 0;
             padding: 0;
         }
-     
         .main-menu{
             font-size: 20px;
             font-weight: bold;
             width:100%;
-            height: 100px;
+            height: 140px;
+            background-color: white;
             box-shadow: 5px 5px 5px gray;
             display: flex;
             justify-content: space-between;
@@ -61,10 +96,10 @@
         }
        
         .sub-menu{
-            width: 100%;
             list-style-type: none;
             position: absolute;
             left: 50%;
+            width: 100%;
             transform: translateX(-50%);
             text-align: center;
             object-fit: cover;
@@ -72,6 +107,7 @@
             display:none;
         } 
         a{
+            display: block;
             color:#000000;
             text-decoration: none;
         }
@@ -130,7 +166,7 @@
 <body>
         
     <div class="section"></div>
-    <ul class="main-menu">
+    <div class="main-menu">
         <img src="Logo.png">
         <ul class="sub">
             <li>
@@ -144,22 +180,22 @@
             <li><a class="head" href="https://www.instagram.com/softdev_louis0621/">Contact</a></li>
             <li><a class="head" href="#aboutme">About me</a></li>
         </ul>
-    </ul>
+    </div>
     <section>
         <h1 class="H1">Louis's<br> web design</h1>
-        <h1 style="margin-top: 30vh; margin-left: 50px">My Projects</h1>
+        <h1 style="margin-top: 30vh; margin-left: 50px">My Project</h1>
         <div id="vid">
         
-            <video muted loop autoplay>
+            <video muted loop autoplay preload="auto">
                 <source src="Dynamicbackground.mp4">
             </video>
         
             
-            <video muted loop autoplay>
+            <video muted loop autoplay preload="auto">
                 <source src="Fixedbackground.mp4">
             </video>
         
-            <video muted loop autoplay>
+            <video muted loop autoplay preload="auto">
                 <source src="Pullinglist.mp4">
             </video>
         
