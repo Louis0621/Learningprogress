@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        header{
+            z-index: -1;
+            position: absolute;
+            top: 0;
+            left: 0;
+            margin: 0;
+            background: url(Coffee.jpg) fixed;
+            background-size: cover;
+            background-position: center;
+            height: 400px;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+        }
+        .sub_header{
+            display: flex;
+            justify-content: space-around;
+        }
+        header h2{
+            margin: 20px;
+        }
+        .sub_header h2{
+            margin: 20px;
+        }
+        header span{
+            font-family: wingdings;
+        }
+        .wrapper{
+            -webkit-text-stroke: 0.7px white;
+            font-size: 50px;
+            font-weight: bolder;
+            text-align: center;
+        }
+        .main{
+            display: flex;
+            margin-top: 200px; 
+            justify-content: space-around;
+        }
+        ad{
+            background: url(dog.jpg);
+            background-size: contain;
+            background-repeat: no-repeat;
+            height: 500px;
+            width: 200px;
+            margin-left: 80px;
+            order: 1;
+        }
+        ad button{
+            background-color: white;
+            position:absolute;
+            left: 220px;
+        }
+        aside{
+            width: 10%;
+            height: 500px;
+            order: 3;
+        }
+        article{
+            color: black;
+            width: 60%;
+            font-size: 20px;
+            order: 2;
+            line-height: 50px;
+        }
+        .sub-menu{
+            font-size: 20px;
+            display:flex;
+            flex-direction: column;
+        }
+        .sub-menu h4{
+            
+            font-size: 17px;
+            border-bottom: 1px solid grey;
+        }
+        .sub-menu h3{
+            border-bottom: 3px solid blue;
+        }
+        .video{
+            width: 70%;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            margin: auto;
+            gap: 50px;
+        }
+        .wrapper-play{
+            margin-top: 50px;
+            border: 3px dashed rgb(44, 16, 16);
+            padding-bottom: 30px;
+        }
+        .first{
+            height: 100%;
+            width: 100%;
+            grid-column: 1 / 3;
+            grid-row: 1 / 3;
+        }
+        @media(max-width: 800px){
+            .wrapper-header, header, header{
+                -webkit-text-stroke: 0.1px white;
+                font-weight: bolder;
+                display: flex;
+                flex-direction: column;
+            }
+            .sub_header{
+                margin:0;
+                position: absolute;
+                top: 50px;
+                width: 100%;
+                display: flex;
+                justify-items: center;
+            }
+            .wrapper{
+                margin-top: 100px;
+            }
+            header{
+                padding-bottom: 100px;
+                font-size: larger;
+            }
+            header h2{
+                text-align: center;
+            }
+            header span{
+                -webkit-text-stroke: black;
+            }
+            .main{
+                display:flex;
+                flex-direction: column;
+                margin: auto 13px;
+            }
+            ad{
+                display: none;
+            }
+            article{
+                width: 100%;
+                order: 1;
+                text-align: justify;
+            }
+            aside{
+                text-align: center;
+                order: 2;
+                width: 100%;
+            }
+            .video{
+                display: flex;
+                flex-direction: column;
+            }
+            
+        }
+    </style>
+</head>
+<body onkeydown="key()" onBeforeCopy="return false" onSelectStart="return false">
+    <div class="wrapper-header">
+        <header>
+            <h2><span>&</span>&nbsp&nbsp WEB DESIGN</h2>
+            <div class="sub_header">
+                <h2>MENU</h2>
+                <h2>NEWS</h2>
+                <h2>CONTACT</h2>
+            </div>
+        </header>
+        
+        <div class="wrapper">
+            <h2 class="title">News</h2>
+            <p>
+                THE MOST STUNNING WEBSITE.
+            </p>
+        </div>
+    </div>
+    <div class="main">
+        <article>
+            <h1>My website has launched</h1>
+            <p>
+                &nbsp&nbsp"Attention all business owners and web enthusiasts! 
+                Are you in need of a website that not only functions seamlessly,
+                but also leaves a lasting impression on your visitors? Look no further!
+                I specialize in creating stunning, visually appealing websites that not only look great,
+                but also drive traffic and convert visitors into customers. With a keen eye for detail and
+                a passion for design, I'll work with you every step of the way to bring your vision to life.
+                Let me help you make your online presence a work of art.
+                Contact me today to see how I can help you stand out from the crowd!"
+            </p>
+            
+        </article>
+        <aside>
+            <div class="sub-menu">
+                <h3>Categories</h3>
+                <h4>Introduction</h4>
+                <h4>Discounts</h4>
+                <h4>Specialty</h4>
+                <h4>Portifolio</h4>
+            </div>
+        </aside>
+        <ad id='ad'style="color: white; text-align: center; font-size: 50px; font-weight: bolder;">
+            <button onclick="trigger()">X</button>
+        </ad>
+       
+    </div>
+    <div class="wrapper-play">
+        <h1  style="text-align: center; margin-bottom: 70px;">Music for playing</h1>
+        <div class="video" >
+            <iframe  class='first' src="https://www.youtube.com/embed/Ab9QvhMbXZY" title="[Playlist] morning coffee | trendy coffee shop playlist" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            <iframe  src="https://www.youtube.com/embed/TvkdasM4Vgw" title="Cozy Jazz Music & Bookstore Cafe Ambience ☕ Relaxing Sweet Jazz Instrumental Music For Working,Study" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            <iframe  src="https://www.youtube.com/embed/fPUEuI8m6Tk" title="Study Lofi HipHop - 60 MINUTES LOFI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            <iframe  src="https://www.youtube.com/embed/EOAPMhaCtuw" title="咖啡廳最愛播的爵士與巴莎諾瓦 - 緩解精神壓力及焦慮" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            <iframe  src="https://www.youtube.com/embed/_4kHxtiuML0" title="Focus Music for Work and Studying, Background Music for Concentration, Study Music" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            <iframe  src="https://www.youtube.com/embed/325LFD92Ei4" title="Morning Coffee Shop Ambience - Elegant Morning Bossa Nova Music for Wake Up, Work, Study, Relax | 4K" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+    </div>
+    <script>
+        function key(){
+            if(event.ctrlKey){
+                switch(event.keyCode){
+                    case 65: alert("Ctrl A is prohibited") ;break;
+                    case 67: alert("Ctrl C is prohibited"); break;
+                }
+            }
+        }
+        function trigger(){
+            let ad = document.querySelector("#ad");
+            ad.style.display = "none";
+
+        }
+    </script>
+</body>
+</html>
