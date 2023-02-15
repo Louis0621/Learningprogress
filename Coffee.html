@@ -91,15 +91,40 @@
             gap: 50px;
         }
         .wrapper-play{
-            margin-top: 50px;
+            margin: 60px 0px;
+            padding: 50px 0;
             border: 3px dashed rgb(44, 16, 16);
-            padding-bottom: 30px;
         }
         .first{
             height: 100%;
             width: 100%;
             grid-column: 1 / 3;
             grid-row: 1 / 3;
+        } 
+        .head{
+            margin-bottom: 40px;
+        }
+        .head h1{
+            text-align: center;
+        }
+        .dog{
+            width: 80px;
+            height: 80px;
+            margin-left: 30px;
+            animation-name: Rotate;
+            animation-duration: 4s;
+            animation-delay: 0.5s;
+            animation-iteration-count: infinite;
+
+        }
+       
+        @keyframes Rotate{
+            from{
+                transform: rotate(0deg);
+            }
+            to{
+                transform: rotate(360deg);
+            }
         }
         @media(max-width: 800px){
             .wrapper-header, header, header{
@@ -151,7 +176,19 @@
                 display: flex;
                 flex-direction: column;
             }
-            
+            .head{
+                display: flex;
+                flex-direction: column;
+            }
+            .dog{
+                margin-left: 43%;
+            }
+            .head h1{
+                margin-bottom: 10px;
+            }
+            .wrapper-play{
+                margin-top: 0px;
+            }
         }
     </style>
 </head>
@@ -203,7 +240,10 @@
        
     </div>
     <div class="wrapper-play">
-        <h1  style="text-align: center; margin-bottom: 70px;">Music for playing</h1>
+        <div class="head" style="display: flex; justify-content: center;">
+            <h1>Music for playing</h1>
+            <img src="cartoondog.jpg" class="dog">
+        </div>
         <div class="video" >
             <iframe  class='first' src="https://www.youtube.com/embed/Ab9QvhMbXZY" title="[Playlist] morning coffee | trendy coffee shop playlist" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
             <iframe  src="https://www.youtube.com/embed/TvkdasM4Vgw" title="Cozy Jazz Music & Bookstore Cafe Ambience ☕ Relaxing Sweet Jazz Instrumental Music For Working,Study" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
@@ -213,6 +253,7 @@
             <iframe  src="https://www.youtube.com/embed/325LFD92Ei4" title="Morning Coffee Shop Ambience - Elegant Morning Bossa Nova Music for Wake Up, Work, Study, Relax | 4K" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
         </div>
     </div>
+    
     <script>
         function key(){
             if(event.ctrlKey){
