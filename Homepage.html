@@ -45,6 +45,12 @@
                 margin-top: 300px;
                 padding-bottom: 50px;
             }
+            
+          
+            .btn{
+                position: relative;
+
+            }
         }
         *{
             font-family: 'Roboto Mono', monospace;
@@ -174,7 +180,46 @@
         .bottom img{
             width: 100px;
         }
-       
+        .btn{
+            position: absolute;
+            right: 7%;
+            width: 73px;
+            height: 40px;
+            border-radius: 20px;
+            border: 0;
+            border: 2px outset rgb(216, 216, 216);
+            transition: background-color 1s;
+        }
+        .btn span{
+            display: block;
+            background: rgb(147, 147, 147);
+            height: 30px;
+            width: 30px;
+            border-radius: 50%;
+            margin-left: 3px;
+            transition: margin-left 1s;
+        }
+        
+        .btnon{
+            background-color: rgb(36, 134, 36);
+            border: 2px inset rgb(216, 216, 216);
+        }
+        .btnon span{
+            margin-left: 35px;
+            background: rgb(255, 255, 255);
+        }
+        .S_1{
+            display: flex;
+        }
+        @media(max-width: 300px){
+            .S_1{
+                display: block;
+            }
+            .btn{
+                position: relative;
+                margin: 40px 60% 0px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -198,23 +243,25 @@
     </div>
     <section>
         <h1 class="H1">Louis's<br> web design</h1>
-        <h1 style="margin-top: 30vh; margin-left: 50px">My Project</h1>
+        <div class="S_1" style="padding-top: 30vh; margin-left: 30px">
+            <h1>My Project</h1>
+            <button class="btn" onclick="on()"><span></span></button>
+        </div>
         <div id="vid">
-        
-            <video muted loop controls>
+            <video class="video" muted loop>
                 <source src="Dynamicbackground.mp4">
             </video>
         
             
-            <video muted loop controls>
+            <video class="video" muted loop>
                 <source src="Fixedbackground.mp4">
             </video>
         
-            <video muted loop controls>
+            <video class="video" muted loop>
                 <source src="Pullinglist.mp4">
             </video>
             
-            <video muted loop controls>
+            <video class="video" muted loop>
                 <source src="Coffe.mp4">
             </video>
         </div>
@@ -236,6 +283,23 @@
     <bottom class="bottom">
         <a href="https://www.instagram.com/softdev_louis0621/"><img src="IG.jfif"></a>
     </bottom>
-    
+    <script>
+        let btn = document.querySelector(".btn");
+        let video = Array.from(document.querySelectorAll(".video"));
+        let cfm = true;
+        function on(){
+            btn.classList.toggle("btnon");
+            if(cfm == true){
+                video.forEach(e=>{e.play();})
+                cfm = false;
+            }
+            else{
+                video.forEach(e=>{e.pause();})
+                cfm = true;
+            }
+            
+            
+        }
+    </script>
 </body>
 </html>
