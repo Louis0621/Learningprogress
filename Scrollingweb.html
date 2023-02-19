@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diary</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            overflow: hidden;   
+        }
+        .header{
+            display: flex;
+            background-color: white;
+            justify-content: space-between;
+            padding-top: 50px;
+            box-shadow: 1px 1px 5px grey;
+            margin: 0 1%;
+            border-radius: 0px 0px 30px 30px;
+            font-size: 20px;;
+        }
+        .back_ground{
+            background: url(diary.jpg) no-repeat; background-size: cover;
+            position: absolute;
+            top: 0;
+            z-index: -1;
+            width: 100%;
+            height: 100vh;
+        }
+        .sub{
+            height: 100px;
+            width: 350px;
+            display: flex;
+            justify-content: space-around;
+        }
+        .sub a{
+            color: black;
+            text-decoration: none;
+        }
+        .btn{
+            height: 40px;
+            width: 80px;
+            border: 0;
+            border-radius: 50px;
+            font-size: 25px;
+            background: rgb(212, 212, 212);
+            transition: background-color 1s;
+        }
+        .onbtn{
+            background-color: rgb(53, 147, 255);
+            border: 0;
+        }
+        .btn span{
+            text-align: center;
+            display: block;
+            height: 35px;
+            width: 35px;
+            margin-left: 4px;
+            border-radius: 20px;
+            background-color: rgb(159, 159, 159);
+    
+        }
+        
+        .onbtn span{
+            background-color: white;
+            margin-left: 40px;
+            border: 0;
+        }
+        section {
+            height: 100vh;
+            font-size: 15px;
+            scroll-snap-align: start;
+            scroll-snap-stop: always;
+            text-align: justify;
+        }
+        #section{
+            background: url(book.jpg);
+            background-position: center;
+            background-size: cover;
+            border: 2px dashed rgb(211, 211, 211);
+            line-height: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0px 5%;
+            margin: 5%;
+        }
+        #section div{
+            background-color: white;
+            width: 40%;
+            font-size: 30px;
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 3px 3px 1px grey;
+            text-align: center;
+        }
+        #section p{
+            padding: 20px;
+            box-shadow: 3px 3px 1px black;
+            border-radius: 20px;
+            background-color: white;
+            width: 46%;
+        }
+        #span{
+            border: 1px dashed black;
+            border-radius: 50px;
+            font-family: webdings;
+        }
+        @media(max-width: 900px){
+            .header{
+                font-size: 15px;
+                
+            }
+            .sub{
+                width: 250px;
+            }
+            .btn{
+                height: 30px;
+                width: 50px;
+            }
+            .onbtn span{
+                margin-left: 22px;
+            }
+            .btn span{
+                height: 25px;
+                width: 25px;
+            }
+            #section{
+                line-height: 20px;
+                flex-direction: column;
+            }
+            #section p{
+                width: 100%;
+                margin-top: 20px;
+                margin-bottom: 30%;
+            }
+            #section div{
+                margin-top: 30%;
+                width: 100%;
+                font-size: 20px;
+            }
+        }
+        @media(max-width: 400px){
+            .header{
+                font-size: 14px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+            .sub{
+                font-size: 14px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                padding-bottom: 20px;
+            }
+        }
+        @media(max-width: 300px){
+            .header{
+                font-size: 10px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+            .sub{
+                font-size: 10px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                padding-bottom: 20px;
+            }
+            
+            .btn{
+                height: 20px;
+                width: 30px;
+            }
+            .btn span{
+                height: 16px;
+                width: 16px;
+                margin-left: 2px;
+            }
+            .onbtn span{
+                margin-left: 11px;
+            }
+            #section{
+                margin: 0px;
+                line-height: 15px;
+                display: flex;
+                justify-content: space-around;
+            }
+            #section p{
+                font-size: 1px; 
+                padding: 4px;
+                width: 95%;
+                margin: 0px;
+            }
+            #section div{
+                margin: 0px;
+                font-size: 1px;
+                width: 85%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <audio id = 'music' src="背景音樂.mp3" loop></audio>
+    <section>
+        <div class="header">
+            <h1 style="margin-left: 7%;">Louis' Diary</h1>
+            <div class="sub">
+                <h1><a href="https://www.instagram.com/softdev_louis0621/">Contact</a></h1>
+                <h1>Music&nbsp<span  id="span">4</span></h1>
+                <button class ='btn' onclick="on()"><span></span></button>
+            </div>
+        </div>
+        <div class="back_ground"></div>
+    </section>
+    <section id="section">
+        <div>
+            Date: Feb. 1st, 2023.<br>
+            Location: my dormitory in Taichung.<br>
+        </div>
+        <p>
+            Dear diary,<br>
+            &nbsp&nbsp Unexpectedly, one of my roommates was still in the dorm, and I didn't notice that until last midnight. Since I have to prepare for my TOEIC speaking and writing tests, I was afraid he would mind me speaking English so loudly. However, he was not in this room for long, and I guess he might return there at the midnight. The day after tomorrow I will be working a part-time job so I might need to go through the handout one day prior to that day. I think it won't be a problem since I have some experience with JavaScript. As for my English speaking progress, I did talk about some interesting topics. For examples, we talked about the weirdest person in their friend group, the experience of inviting friends over or meeting friends. I said I might not be the weirdest person in my friend group. However, I have a fatal shortcoming. I have a bad sense of direction so when I have a trip with my friends, I always get lost and am not able to locate the destination. Another topic is about a person taking an effort to quit bad habit but eventually failing. That one is absolutely my dad. He promises my mom he would quit smoking after marriage. Nevertheless he still smokes at the present. 
+        </p>
+    </section>
+    <section id="section">
+        <div>
+            Date: Feb. 2nd, 2023.<br>
+            Location: my dormitory in Taichung.<br>
+        </div>
+        <p>
+            Date: Feb. 2nd, 2023.<br>
+            Location: my dormitory in Taichung.<br>
+                Dear diary,<br>
+                &nbsp&nbsp To my disappointment, this morning I was about to went to the kitchen and I found the door locked. After phoning the service center, they told me that the kitchen would remain off-limits until the new semester starts. However, I still had my ingredients in the fridge and freezer, so I inevitably needed to get these stuff cooked. Therefore, I put all the things into the rice cooker, and I cooked the chicken breast beforehand by nuking them in order that they wouldn't be undercooked when the vegetables were done. It really tasted bad. I couldn't live without the electric stove. If possible, I think a gas stove is better than an electric stove, but it is outright prohibit to use fire to make a meal in the dormitory. I would say it also quite impossible to make all three meals by using a gas stove owing to the danger. I'm going to work a part-time job in the next three days, and things might work out eventually. So no worries. As for my roommate, he hastily moved his belongings out of the room. He is who likes to sleep in until noon, and I'm a person waking up early. In order to make breakfast, I always make a lot of noises, which bothers him a lot. I guess that is one of the reason he wants to move out and rent an apartment.
+        </p>
+    </section>
+    <section id="section">
+        <div>
+            Date: Feb. 3rd, 2023.<br>
+            Location: my dormitory in Taichung.<br> 
+        </div>
+        <p>
+                Dear diary,<br>
+                &nbsp&nbsp Today is my first day of working a part-time job. I was asked to lead a group of students, and the most difficult part of it was to make them more familiar with each other. I first went on stage to do the introduction, and I came up with a few questions to ask my team members. They were quite willing to coordinate, so I was rather into that. But in the first place I did take courage to make the first move. I overcame my fear. Moreover, I've learn this before so I was so confident that I answered students' questions smoothly. There were a lot of suggestions given by me about how to make the best school portfolio as well. After I left work, I felt a little bit tired. So I didn’t train my English speaking skill by using the textbook. Instead, I came to that website to talk about something that happened today. I was totally satisfied when I was looking back to see what I'd done. I expected it would be much well tomorrow. 
+        </p>    
+    </section>
+    <!-- more sections here -->
+    <script>
+        
+        let sections = document.querySelectorAll("section");
+        let currentSectionIndex = 0;
+        let btn = document.querySelector('.btn');
+        function scrollToSection(index) {
+            sections[index].scrollIntoView({ behavior: "smooth" });
+        }
+        window.addEventListener("wheel", function (event) {
+            event.preventDefault();
+            let direction = event.deltaY > 0 ? 1 : -1;
+
+            currentSectionIndex += direction;
+            currentSectionIndex = Math.max(0, currentSectionIndex);
+            currentSectionIndex = Math.min(sections.length - 1, currentSectionIndex);
+            scrollToSection(currentSectionIndex);
+        });
+        let cfm = true;
+        function on(){
+            btn.classList.toggle('onbtn');
+            if(cfm == true){
+                cfm = false;
+                span.textContent = ';';
+                music.play();
+            }
+            else{
+                span.textContent = '4';
+                cfm = true;
+                music.pause();
+            }
+        }
+    </script>
+</body>
+</html>
