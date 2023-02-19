@@ -86,13 +86,16 @@
             background-color: rgb(52, 52, 52);
             cursor: pointer;
             list-style-type: none;
+            transition: background-color 0.5s;
         }
         
         .sub li:hover .head{
             color: yellow;
+            transition: color 0.5s;
         }
         .sub-menu li:hover a{
             color: yellow;
+            transition: color 0.5s;
         }
         .sub li:hover .sub-menu{
             background-color: #ffffff;
@@ -199,7 +202,7 @@
             margin-left: 3px;
             transition: margin-left 1s;
         }
-        
+       
         .btnon{
             background-color: rgb(36, 134, 36);
             border: 2px inset rgb(216, 216, 216);
@@ -211,6 +214,20 @@
         .S_1{
             display: flex;
         }
+        ::-webkit-scrollbar{
+            width: 12px;
+        }
+        ::-webkit-scrollbar-track{
+            background: rgb(255, 255, 255);
+            border-left: 3px dashed rgb(175, 229, 250);
+        }
+        ::-webkit-scrollbar-thumb{
+            background: linear-gradient(rgb(4, 154, 203), rgb(31, 27, 107));
+            border-radius: 20px;   
+            box-shadow: 2px 2px 2px grey;
+        }
+       
+        
         @media(max-width: 300px){
             .S_1{
                 display: block;
