@@ -22,7 +22,7 @@
                 flex-direction: column;
                 background-color: white;
                 font-size: 0.3rem;
-                padding-bottom: 255px;
+                padding-bottom: 350px;
             }
             .main-menu img{
                 transform: translateX(-15px);
@@ -34,7 +34,7 @@
                 background-color: white;
             }
             .sub-menu{
-                transform: translateX(15px);
+                transform: translateX(20px);
             }
             .sub-menu li{
                 border-left: 2px solid rgb(52, 52, 52);
@@ -46,7 +46,13 @@
                 padding-bottom: 50px;
             }
             
-          
+            #profile{
+                margin-top: 10px;
+                justify-content: center;
+            }
+            .label{
+                transform: translateX(5px);
+            }
             .btn{
                 position: relative;
 
@@ -76,7 +82,7 @@
         }
         .sub{ 
             
-            width: 350px;
+            width: 550px;
             line-height: 100px;
             display: flex;
             align-items: center;
@@ -104,6 +110,7 @@
       
         .sub-menu li{
             border-bottom: 2px solid rgb(52, 52, 52);
+            margin: 0 5px;
         }
        
         .sub-menu{
@@ -226,9 +233,34 @@
             border-radius: 20px;   
             box-shadow: 2px 2px 2px rgb(185, 185, 185);
         }
-       
+        
+        .label{
+            
+            display: flex;
+            margin-right: 10px;
+            cursor: pointer;
+            width: 54px;
+            height: 54px;
+            border-radius: 50%;
+            border: 2px dashed rgb(144, 144, 144);
+            overflow: hidden;
+            justify-content: flex-end;
+            align-items: center;
+        }
+        #profile img{
+            width: 55px;
+
+        }
+        #profile:hover{
+            background-color: transparent;
+        }
+        #inputfile{
+            display: none;
+            width: 100px;
+        }
         
         @media(max-width: 300px){
+            
             .S_1{
                 display: block;
             }
@@ -236,30 +268,36 @@
                 position: relative;
                 margin: 40px 60% 0px;
             }
+            .main-menu{
+                padding-bottom: 300px;
+            }
         }
     </style>
 </head>
 <body>
-        
+    
     <div class="section"></div>
     <div class="main-menu">
         <img src="Logo.png">
         <ul class="sub">
             <li>
-                <a class="head">Project</a>
+                <a class="head" target="_blank">Project</a>
                 <ul class="sub-menu">
-                    <li style="border-top: 2px solid rgb(52, 52, 52);"><a href="Dynamic.html">Dynamic background</a></li>
-                    <li><a href="Destiny.html">Fixed background</a></li>
-                    <li><a href="Pullingmenu.html">Pulling menu</a></li>
-                    <li><a href="Coffee.html">Grid web</a>
-                    <li><a href="Scrollingweb.html">Scrolling web</a></li>
+                    <li style="border-top: 2px solid rgb(52, 52, 52);"><a href="Dynamic.html" target="_blank">Dynamic background</a></li>
+                    <li><a href="Destiny.html" target="_blank">Fixed background</a></li>
+                    <li><a href="Pullingmenu.html" target="_blank">Pulling menu</a></li>
+                    <li><a href="Coffee.html" target="_blank">Grid web</a>
+                    <li><a href="Scrollingweb.html" target="_blank">Scrolling web</a></li>
                 </ul>
             </li>
-            <li><a class="head" href="https://www.instagram.com/softdev_louis0621/">Contact</a></li>
+            <li><a class="head" href="https://www.instagram.com/softdev_louis0621/" target="_blank">Contact</a></li>
             <li><a class="head" href="#aboutme">About me</a></li>
+            <label id="profile" class='label' for="inputfile"><img id="image_profile" src="Anonymity.jfif"></label>
+            <input type="file" id= "inputfile" accept="image/png, image/jfif, image/jpeg, image/jpg"> 
+            
         </ul>
     </div>
-    <section>
+    <section class="mainsection">
         <h1 class="H1">Louis's<br> web design</h1>
         <div class="S_1" style="padding-top: 30vh; margin-left: 30px">
             <h1>My Project</h1>
@@ -305,6 +343,12 @@
         let btn = document.querySelector(".btn");
         let video = Array.from(document.querySelectorAll(".video"));
         let cfm = true;
+        let profile = document.querySelector("#image_profile");
+        let inputfile = document.querySelector("#inputfile");
+        inputfile.onchange = function(){
+            profile.src = URL.createObjectURL(inputfile.files[0]);
+
+        }
         function on(){
             btn.classList.toggle("btnon");
             if(cfm == true){
