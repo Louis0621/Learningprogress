@@ -343,7 +343,7 @@
                 </div>
                 <div class="right">
                     <a href="https://www.instagram.com/softdev_louis0621/"><h2>Contact</h2></a>
-                    <a href="#aboutme"><h2>About me</h2></a>
+                    <a onclick="munipulate(1)"><h2>About me</h2></a>
                 </div>
             </div>
             
@@ -410,11 +410,15 @@
         li[0].style.color = 'black';
         li[0].style.backgroundColor = "white";
         li[0].style.opacity = '1';
-        guide.addEventListener("wheel", (event)=>{
+        guide.addEventListener("wheel", (event)=>{  
             const dir = event.deltaY > 0 ? 1: -1;
             curr += dir;
             curr = Math.max(0, curr);
             curr = Math.min(desti.length - 1, curr);
+            munipulate(curr)
+        })
+        function munipulate(curr){
+          
             for(let i = 0; i < desti.length; ++i){
                 if(i != curr){
                     desti[i].style.color = "black";
@@ -428,7 +432,7 @@
             li[curr].style.backgroundColor = "white";
             li[curr].style.opacity = '1';
             desti[curr].scrollIntoView({behavior: "smooth"});
-        })
+        }
         Scroll.addEventListener("wheel", (event)=>{
             Scroll.style.scrollBehavior = "smooth";
             Scroll.scrollLeft += event.deltaY * 4;
