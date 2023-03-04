@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HomePage2.0</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            font-family: Arial;
+        }
+        body{
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        .container{  
+            width: 100%;
+            height: 100vh;
+        }
+        .main{
+            width: 100%;
+            height: 100vh;
+        }
+        article{
+            position: absolute;
+            top: 0;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .image{
+            position: absolute;
+            background: url(Programmer.jpg) no-repeat;
+            background-size: cover;
+            z-index: -99;
+            width: 100%;
+            height: 100%;  
+            filter: blur(0.5px) grayscale(0.4);
+       
+        }
+        
+            /*
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-size: 100%;//This works for div tag
+            */
+          
+        .header{
+            position: absolute;
+            width: 100%;
+            z-index: 1;
+            display: flex;
+            justify-content: space-between;
+            padding: 20px 10px 0px;
+            color: rgb(255, 255, 255);
+            filter: unset;
+        }
+        .right h2:hover{
+            transform: scale(1.2);
+            cursor: pointer;
+        }
+        .left{
+            letter-spacing: 3px;
+            margin-left: 10px;
+        }
+        .right{
+            letter-spacing: 1px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            width: 300px;
+
+        }
+        .gallery{
+            margin-top: 150px;
+            width: 80%;   
+            border-radius: 50px;
+            display: flex;
+            overflow-x: scroll;
+            align-items: center;
+        }
+        .Btn{
+            position: absolute;
+            top: 160px;
+            z-index: 999;
+            right: 10%;
+            width: 65px;
+            height: 35px;
+            border-radius: 20px;
+            background-color: rgb(208, 208, 208);
+            border: 4px outset rgb(173, 173, 173);
+            display: flex;
+            align-items: center;
+        }
+        .Btn:hover{
+            border: 4px inset  rgb(173, 173, 173);
+        }
+        .Btn span{
+            display: block;
+            margin-left: 5px;
+            width: 30px;
+            height: 30px;
+            background-color: rgb(139, 139, 139);
+            border-radius: 50%;
+            border: 2px solid grey;
+        }
+        
+        .active{
+            background-color: rgb(1, 159, 1);
+            border: 4px outset green;
+        }
+        .active:hover{
+            border: 4px inset green;
+        }
+        .active span{
+            margin-left: 30px;
+            background-color: white;
+            
+        }
+        .gallery::-webkit-scrollbar{
+            display: none;
+        }
+        .gallery video{
+            width: 700px;
+            cursor: pointer;
+            display: grid;
+            grid-template-columns: auto auto auto;
+            margin: 10px;
+            filter: grayscale(1) blur(1px);
+            transform: scale(0.9);
+            transition: all 0.5s;
+            border-radius: 20px;
+        }
+        .News{
+            position: absolute;
+            width: 200px;
+            top: 130px;
+            line-height: 100px;
+            border-radius: 20px;
+            background-color: rgba(68, 68, 68, 0.379);
+            
+            color: rgba(255, 255, 255, 0.703);
+            text-align: center;
+        }
+        .span{
+            letter-spacing: 1.5px;
+            font-size: 15px;
+            font-weight: bold;
+            text-shadow:
+                        2px 2px 10px rgb(92, 179, 216),
+                        -2px -2px 10px rgb(92, 179, 216);
+                         
+        }
+        .gallery video:hover{
+            filter: grayscale(0) blur(0px);
+            transform: scale(1);
+            transition: all 0.5s;
+        }
+        a{
+            display: block;
+            text-decoration: none;
+            color: white;
+        }
+        section{
+            border: 2px solid black;
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            color: white;
+            transition: all 1s;
+        }
+        section h1{
+            margin: 50px;
+            text-align: center;
+        }
+        section h2{
+            margin-left: 4%;
+            font-size: 25px;
+        }
+        .map{
+            position: relative;
+            width: 100%;
+            height: 30%;
+            bottom: 10px;
+            display: flex;
+            justify-content: center;
+        }
+        .map iframe{
+            width: 50%;
+            height: 100%;
+        }
+        .sub_section p{
+            text-align: justify;
+            font-size: 23px;
+            margin: 20px 10%;
+        }
+        .image_2{
+            background: url(Programmer2.jpg) no-repeat;
+            position: absolute;
+            z-index: -1;
+            width: 100%;
+            height: 100vh;
+            background-size: cover;
+            filter:blur(1px);
+        }
+        .guide{
+            position: fixed;
+            top: 20%;
+            z-index: 2;
+            right: -80px;
+            height: 50%;
+            padding: 0 100px;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: end;
+        }
+        .guideline{
+            height: calc(100% + 100px);
+            position: absolute;
+            background-color: rgba(255, 255, 255, 0.249);
+            width: 2px;
+            transition: all 0.1s;
+        }
+        .guide li{
+            position: relative;
+            list-style-type: none;
+            display: block;
+            right: -6px;
+            text-align: center;
+            opacity: 0.5;
+            width: 17px;
+            border-radius: 2px;
+            transition: all 0.5s;
+        }
+        .guide:hover .guideline{
+            transition: all 0.1s;
+            box-shadow: 0px 0px 10px white;
+        }
+    </style>
+</head>
+<body>
+    <ul class="guide">
+        <div class="guideline"></div>
+        <li id="1">1</li>
+        <li id="2">2</li>
+    </ul>
+    <div class="container desti">
+        <div class="main" onselectStart = "return false">
+            <div class="image"></div>
+            <div class="header">
+                <div style = "position: absolute;top:70px;height: 1px; width: 90%;margin-left: 2%;padding-bottom: 20px;
+                border-bottom: 2px solid rgb(159, 159, 159);"></div>
+                <div class="left" style="cursor:default">
+                    <h1>Louis's WebPage</h1>
+                </div>
+                <div class="right">
+                    <a href="https://www.instagram.com/softdev_louis0621/"><h2>Contact</h2></a>
+                    <a href="#aboutme"><h2>About me</h2></a>
+                </div>
+            </div>
+            
+        </div>
+
+        <article>
+            <div class="Btn"><span> </span></div>
+            <div class="News"><span> </span></div>
+            <div class="gallery">
+                <a  href="Dynamic.html" target="_blank">
+                    <video class = "Dynamic" muted loop>
+                        <source src="Dynamicbackground.mp4">
+                        
+                    </video>
+                </a>
+                <a href="Pullingmenu.html" target="_blank">
+                    <video class="Pulling Menu" muted loop>
+                            <source src="Pullinglist.mp4">
+                    </video>
+                </a>
+                <a href="Destiny.html" target="_blank">
+                    <video class="Fixed Background" muted loop>
+                        <source src="Fixedbackground.mp4">
+                    </video>
+                </a>
+                <a  href="Coffee.html" target="_blank">
+                    <video class="Grid Iframe Wall" muted loop>
+                        <source src="Coffe.mp4">
+                    </video>
+                </a>
+            </div>
+        </article>
+    
+    </div>
+    <section  id='aboutme' class="desti">
+        <div class="image_2"></div>
+        <div class="sub_section">
+            <h1>About me</h1>
+            <h2>Who am I?</h2>
+            <p>
+                &nbsp&nbsp
+                I'm currently studying in college and pursuing bachelor's degree. About this website, I has been learning HTML for some time.
+                Since wanting to create my own project, I made this website to demonstrate my ability in this area.
+            </p>
+            <h2>What kind of ability do I have?</h2>
+            <p>
+                &nbsp&nbsp
+                I have been learning English speaking for months, and have excellent scores in TOEIC reading and listening tests.
+            </p>
+        </div>
+        <h2 style="padding-bottom: 30px">Where do I study</h2>
+        <div class="map">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3641.372532314484!2d120.6731373150669!3d24.123551984406784!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34693cfcecffe9d9%3A0xe28afadc0dad203a!2z5ZyL56uL5Lit6IiI5aSn5a24!5e0!3m2!1szh-TW!2stw!4v1676365214758!5m2!1szh-TW!2stw" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>    
+    </section>
+    <script>
+        let Scroll = document.querySelector(".gallery");
+        let Btn = document.querySelector(".Btn");
+        let News = document.querySelector(".News");
+        let desti = document.querySelectorAll(".desti");
+        let li = document.querySelectorAll("li");
+        let curr = 0;
+        let guide = document.querySelector(".guide");
+        li[0].style.color = 'black';
+        li[0].style.backgroundColor = "white";
+        li[0].style.opacity = '1';
+        guide.addEventListener("wheel", (event)=>{
+            const dir = event.deltaY > 0 ? 1: -1;
+            curr += dir;
+            curr = Math.max(0, curr);
+            curr = Math.min(desti.length - 1, curr);
+            for(let i = 0; i < desti.length; ++i){
+                if(i != curr){
+                    desti[i].style.color = "black";
+                    li[i].style.color = "white";
+                    li[i].style.backgroundColor = "transparent";
+                    li[i].style.opacity = '0.5';
+                }
+            }
+            desti[curr].style.color = "white";
+            li[curr].style.color = 'black';
+            li[curr].style.backgroundColor = "white";
+            li[curr].style.opacity = '1';
+            desti[curr].scrollIntoView({behavior: "smooth"});
+        })
+        Scroll.addEventListener("wheel", (event)=>{
+            Scroll.style.scrollBehavior = "smooth";
+            Scroll.scrollLeft += event.deltaY * 4;
+        })
+        let cfm = true;
+        let List = document.querySelectorAll("video");
+        List.forEach(video=>{
+            const title = video.className;
+            video.addEventListener("mouseenter", ()=>{
+                let find = document.querySelector(".span");
+                if(find){
+                    find.remove();
+                }
+                const sp = document.createElement('span');
+                sp.setAttribute("class", "span");
+                News.appendChild(sp).textContent = title;
+            })
+        })
+        /*
+        let Gallery = document.querySelector(".gallery");
+        Gallery.addEventListener("mouseenter", (event)=>{
+            setTimeout(()=>{
+                News.textContent = event.target.className;
+            }, 500);
+        })*/
+        Btn.addEventListener("click", ()=>{
+            Btn.classList.toggle('active');
+            if(cfm){
+                List.forEach((i)=>{
+                    i.play();
+                })
+                cfm = false;
+            }
+            else{
+                List.forEach((i)=>{
+                    i.pause();
+                })
+                cfm = true;
+            }
+        })
+    </script>
+</body>
+</html>
