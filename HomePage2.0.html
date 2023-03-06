@@ -12,6 +12,7 @@
             font-family: Arial;
         }
         body{
+            background-color: black;
             width: 100%;
             height: 100%;
             overflow: hidden;
@@ -59,7 +60,7 @@
             z-index: 1;
             display: flex;
             justify-content: space-between;
-            padding: 20px 10px 0px;
+            padding: 20px 0px 0px;
             color: rgb(255, 255, 255);
             filter: unset;
         }
@@ -159,6 +160,16 @@
                         -2px -2px 10px rgb(92, 179, 216);
                          
         }
+
+        .line{
+            position: absolute;
+            top:70px;
+            height: 1px;
+            width: 90%;
+            margin-left: 2%;
+            padding-bottom: 20px;
+            border-bottom: 2px solid rgb(159, 159, 159);
+        }
         .gallery video:hover{
             filter: grayscale(0) blur(0px);
             transform: scale(1);
@@ -247,12 +258,13 @@
             transition: all 0.1s;
             box-shadow: 0px 0px 10px white;
         }
-        @media(max-width: 600px){
-            body{
-                overflow: scroll;
-            }
+        @media(max-width: 700px){
+            
             .header{
-                font-size: 10px;
+                margin-top: 10px;
+            }
+            h1{
+                font-size: 22px;
             }
             .guide{
               
@@ -263,7 +275,7 @@
                 right: -9px;
             }
             .gallery video{
-                width: 350px;
+                width: 500px;
                 margin: 5px;
                 border-radius: 10px;
             }
@@ -276,39 +288,93 @@
                 font-size: 20px;
             }
             .Btn{
-                width: 40px;
-                height: 20px;
-                border: 2px outset rgb(173, 173, 173);
+                width: 50px;
+                height: 25px;
+                border: 4px outset rgb(173, 173, 173);
             }
             .Btn span{
                 margin-left: 2px;
-                width: 15px;
-                height: 15px;
+                width: 20px;
+                height: 20px;
                 background-color: rgb(139, 139, 139);
                 border-radius: 50%;
                 border: 2px solid grey;
             }
             .Btn:hover{
-                border: 2px inset  rgb(173, 173, 173);
+                border: 4px inset  rgb(173, 173, 173);
             }
             
             .active{
                 background-color: rgb(1, 159, 1);
-                border: 2px outset green;
+                border: 4px outset green;
             }
             .active:hover{
-                border: 2px inset green;
+                border: 4px inset green;
             }
             .active span{
-                margin-left: 20px;
+                margin-left: 23px;
                 background-color: white;
                 
             }
         }
-        @media(max-width: 300px){
-            .header{
-                font-size: 5px;
+        @media (max-width: 430px) {
+           .header{
+                display:flex;
+                flex-direction: column;
+                height: 50%;
+                justify-content: start;
+                align-items: center;
+                padding-bottom: 30px;
+           }
+           .Btn{
+            margin-top: 100px;
+           }
+           .header h1{
+            font-size: 20px;
+                padding-bottom: 30px;
+           }
+           .header h2{
+            font-size: 19px;
+                padding-bottom: 30px;
+           }
+           .gallery video{
+                width: 300px ;
+           }
+           .right{
+                
+                display:flex;
+                flex-direction: column;
+           }
+           .line{
+                position: absolute;
+                top: 170px;
+                width: 80%;
+           }
+        }
+        ::-webkit-scrollbar{
+            width: 5px;
+        }
+        ::-webkit-scrollbar{
+            background-color: grey;
+        }
+        ::-webkit-scrollbar-thumb{
+            background-color: white;
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+            border: 1px solid grey; 
+        }
+        @media(max-width: 350px){
+            h1{
+                font-size: 12px;
             }
+            .Btn{
+                margin-top: 60px;
+                width: 50px;
+                height: 25px;
+                border: 4px outset rgb(173, 173, 173);
+            }
+            
+            
             .guide{
               
                 right: -35px;
@@ -339,8 +405,7 @@
         <div class="main" onselectStart = "return false">
             <div class="image"></div>
             <div class="header">
-                <div style = "position: absolute;top:70px;height: 1px; width: 90%;margin-left: 2%;padding-bottom: 20px;
-                border-bottom: 2px solid rgb(159, 159, 159);"></div>
+                <div class="line"></div>
                 <div class="left" style="cursor:default">
                     <h1>Louis's WebPage</h1>
                 </div>
@@ -410,6 +475,14 @@
         let li = document.querySelectorAll("li");
         let curr = 0;
         let guide = document.querySelector(".guide");
+        less = () =>{
+            document.body.style.overflow = "scroll";
+            guide.style.display = "none";
+            document.body.style.overflowX = "hidden";
+        }
+        if(window.innerWidth <= 1000){
+            less();
+        }
         li[0].style.color = 'black';
         li[0].style.backgroundColor = "white";
         li[0].style.opacity = '1';
@@ -420,8 +493,14 @@
             curr = Math.min(desti.length - 1, curr);
             munipulate(curr)
         })
+        
+        Scroll.addEventListener("wheel", (event)=>{
+            Scroll.style.scrollBehavior = "smooth";
+            Scroll.scrollLeft += event.deltaY * 4;
+        })
+    
         function munipulate(curr){
-          
+            
             for(let i = 0; i < desti.length; ++i){
                 if(i != curr){
                     desti[i].style.color = "black";
@@ -436,10 +515,6 @@
             li[curr].style.opacity = '1';
             desti[curr].scrollIntoView({behavior: "smooth"});
         }
-        Scroll.addEventListener("wheel", (event)=>{
-            Scroll.style.scrollBehavior = "smooth";
-            Scroll.scrollLeft += event.deltaY * 4;
-        })
         let cfm = true;
         let List = document.querySelectorAll("video");
         List.forEach(video=>{
@@ -453,6 +528,16 @@
                 sp.setAttribute("class", "span");
                 News.appendChild(sp).textContent = title;
             })
+        })
+        window.addEventListener("resize", ()=>{
+           if(window.innerWidth <= 1000){
+                less();
+            }
+            else{
+                document.body.style.overflow = "hidden";
+                guide.style.display = "flex";
+            }
+            
         })
         /*
         let Gallery = document.querySelector(".gallery");
