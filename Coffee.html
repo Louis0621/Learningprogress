@@ -20,8 +20,6 @@
             left: 0;
             margin: 0;
             background: url(Coffee.jpg) fixed;
-            background-size: cover;
-            background-position: center;
             height: 400px;
             width: 100%;
             display: flex;
@@ -334,8 +332,7 @@
             <img src="cartoondog.jpg" class="dog">
         </div>
         <div class="video" >
-            <iframe  class='first' src="https://www.youtube.com/embed/Ab9QvhMbXZY" title="[Playlist] morning coffee | trendy coffee shop playlist" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-            <iframe  src="https://www.youtube.com/embed/TvkdasM4Vgw" title="Cozy Jazz Music & Bookstore Cafe Ambience ☕ Relaxing Sweet Jazz Instrumental Music For Working,Study" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            <iframe  class = "first" src="https://www.youtube.com/embed/Ar18V8jaZzY" title="escape to the bookstore. 📚 lofi hip hop [study/ sleep/ relax]" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe><iframe  src="https://www.youtube.com/embed/TvkdasM4Vgw" title="Cozy Jazz Music & Bookstore Cafe Ambience ☕ Relaxing Sweet Jazz Instrumental Music For Working,Study" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
             <iframe  src="https://www.youtube.com/embed/fPUEuI8m6Tk" title="Study Lofi HipHop - 60 MINUTES LOFI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
             <iframe  src="https://www.youtube.com/embed/EOAPMhaCtuw" title="咖啡廳最愛播的爵士與巴莎諾瓦 - 緩解精神壓力及焦慮" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
             <iframe  src="https://www.youtube.com/embed/_4kHxtiuML0" title="Focus Music for Work and Studying, Background Music for Concentration, Study Music" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
@@ -351,11 +348,15 @@
             setTimeout(()=>{
                 document.querySelector(".loading").style.opacity = 0;
                 document.body.style.overflow = "auto";
+                setTimeout(()=>{
+                    document.querySelector(".loading").remove();
+                }, 2000);
             }, 2000);
         }
         function key(){
             if(event.ctrlKey){
                 switch(event.keyCode){
+                    
                     case 65: alert("Ctrl A is prohibited") ;break;
                     case 67: alert("Ctrl C is prohibited"); break;
                 }
